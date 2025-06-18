@@ -1,0 +1,195 @@
+<html>
+<head>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voc</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:black;
+      padding: 10px;
+      color:white;
+    }
+    .container {
+      max-width: 850px;
+      padding: 10px;
+      margin: auto;
+      border-radius: 10px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 10px;
+    }
+    input {
+      width: 70%;
+      background-color:black;
+      color:white;
+      border-radius:12px;
+      border:1px solid white;
+    }
+    button {
+      margin-left: 10px;
+      background-color:black;
+      color:white;
+      border-radius:12px;
+      border:1px solid white;
+    }
+    h2 {
+      color:white;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li{
+    margin:5px;
+    list-style-type:none;
+    }
+    audio {
+      margin-top: 10px;
+      
+    }
+    .api-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .api-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    h1{
+    margin:0px;
+    padding:0px;
+    }
+    
+    .nkn{
+    display:flex;
+    justify-content:space-between;
+    }
+    
+    i{
+    color:white;
+    
+    }
+    
+    .au{
+    margin:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    }
+    
+    h3{
+    color:orange;
+    }
+    
+    strong{
+    color:lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <center><h1 id="redvi"> Voc</h1></center><br>
+    <div class="nkn">
+    <input type="text" id="wordInput" placeholder="Enter a word..." />
+    <button onclick="feta()">Search</button>
+    </div>
+    <div id="output"></div>
+    <div class="api-link" id="apiLink"></div>
+  </div>
+
+  <script>
+    async function feta() {
+     
+      const word = document.getElementById("wordInput").value.trim();
+      const output = document.getElementById("output");
+      const apiLink = document.getElementById("apiLink");
+      output.innerHTML = "";
+      apiLink.innerHTML = "";
+      
+      if (!word) {
+        output.innerHTML = "<p>Please enter a word.</p>";
+        return;
+      }
+
+      const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+      // apiLink.innerHTML = `🔗 Reference: <a href="${apiUrl}" target="_blank">${apiUrl}</a>`;
+
+      try {
+        output.innerHTML=`<p style="text-align:center;margin:10px;padding:10px;"> Searchinggggggggggg </p>`;
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if (data.title === "No Definitions Found") {
+          output.innerHTML = `<p>No result found for "<strong>${word}</strong>".</p>`;
+          return;
+        }
+
+        let html = "";
+
+        data.forEach(entry => {
+          html += `<h2>${entry.word}</h2>`;
+
+          if (entry.phonetics && entry.phonetics.length > 0) {
+           // html += `<strong>Phonetics : </strong> ${entry.phonetics.map(p => p.text).filter(Boolean).join(", ")}<br>`;
+            const audio = entry.phonetics.find(p => p.audio);
+            if (audio && audio.audio) {
+              html += `<font class="au" onclick="this.children[1].play()"> Pronounce &nbsp; <i style="font-size:1.5rem;" class="bi bi-volume-up"></i><audio style="display:none;" controls src="${audio.audio}"></audio></font><br>`;
+            }
+          }
+
+          if (entry.origin) {
+            html += `<strong>Origin : </strong> ${entry.origin}<br>`;
+          }
+
+          entry.meanings.forEach((meaning, i) => {
+            html += `<h3>Meaning</h3>`;
+            html += `<strong>Part of Speech : </strong> ${meaning.partOfSpeech}<br><br>`;
+
+            html += `<strong>Definitions : </strong><br><ul>`;
+            meaning.definitions.forEach((def, j) => {
+              html += `<li><strong>${j + 1} : </strong> ${def.definition}<br>`;
+              if (def.example) {
+                html += `<br><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example :- &nbsp; </em> "${def.example}"<br><br>`;
+              }
+              html += `</li>`;
+            });
+            html += `</ul>`;
+
+            if (meaning.synonyms && meaning.synonyms.length > 0) {
+              html += `<strong>Synonyms : </strong> ${meaning.synonyms.join(", ")}<br><br>`;
+            }
+
+            if (meaning.antonyms && meaning.antonyms.length > 0) {
+              html += `<strong>Antonyms : </strong> ${meaning.antonyms.join(", ")}<br><br>`;
+            }
+
+            html += `<hr>`;
+          });
+        });
+         html+=`<br> <p style="text-align:center;"> Developed By <br> <font onclick="location.href='https://microintel.github.io/microintel/v1/micropro.html'"> Microintel</font> &nbsp; & &nbsp; <font onclick="location.href='https://www.paypal.com/paypalme/paytosuraj'">Dictionary API </font></p>`;
+        output.innerHTML = html;
+
+      } catch (error) {
+        output.innerHTML = "<p style='color:red;'>Error</p>";
+        console.error(error);
+      }
+    }
+    
+    
+    let c = 0;
+    
+    function f() {
+    c = 0;
+    location.href="vocs.html";
+    }
+    
+    document.getElementById("redvi").onclick = function() {
+    c++;
+    if (c === 3) f();
+    };
+  </script>
+</body>
+</html>
