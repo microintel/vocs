@@ -22,32 +22,32 @@
     
     <div class="az-menu">
     <div class="az-scroll">
-    <span onclick="scrollToLetter('A')">A</span>
-    <span onclick="scrollToLetter('B')">B</span>
-    <span onclick="scrollToLetter('C')">C</span>
-    <span onclick="scrollToLetter('D')">D</span>
-    <span onclick="scrollToLetter('E')">E</span>
-    <span onclick="scrollToLetter('F')">F</span>
-    <span onclick="scrollToLetter('G')">G</span>
-    <span onclick="scrollToLetter('H')">H</span>
-    <span onclick="scrollToLetter('I')">I</span>
-    <span onclick="scrollToLetter('J')">J</span>
-    <span onclick="scrollToLetter('K')">K</span>
-    <span onclick="scrollToLetter('L')">L</span>
-    <span onclick="scrollToLetter('M')">M</span>
-    <span onclick="scrollToLetter('N')">N</span>
-    <span onclick="scrollToLetter('O')">O</span>
-    <span onclick="scrollToLetter('P')">P</span>
-    <span onclick="scrollToLetter('Q')">Q</span>
-    <span onclick="scrollToLetter('R')">R</span>
-    <span onclick="scrollToLetter('S')">S</span>
-    <span onclick="scrollToLetter('T')">T</span>
-    <span onclick="scrollToLetter('U')">U</span>
-    <span onclick="scrollToLetter('V')">V</span>
-    <span onclick="scrollToLetter('W')">W</span>
-    <span onclick="scrollToLetter('X')">X</span>
-    <span onclick="scrollToLetter('Y')">Y</span>
-    <span onclick="scrollToLetter('Z')">Z</span>
+    <span onclick="scrol('A')">A</span>
+    <span onclick="scrol('B')">B</span>
+    <span onclick="scrol('C')">C</span>
+    <span onclick="scrol('D')">D</span>
+    <span onclick="scrol('E')">E</span>
+    <span onclick="scrol('F')">F</span>
+    <span onclick="scrol('G')">G</span>
+    <span onclick="scrol('H')">H</span>
+    <span onclick="scrol('I')">I</span>
+    <span onclick="scrol('J')">J</span>
+    <span onclick="scrol('K')">K</span>
+    <span onclick="scrol('L')">L</span>
+    <span onclick="scrol('M')">M</span>
+    <span onclick="scrol('N')">N</span>
+    <span onclick="scrol('O')">O</span>
+    <span onclick="scrol('P')">P</span>
+    <span onclick="scrol('Q')">Q</span>
+    <span onclick="scrol('R')">R</span>
+    <span onclick="scrol('S')">S</span>
+    <span onclick="scrol('T')">T</span>
+    <span onclick="scrol('U')">U</span>
+    <span onclick="scrol('V')">V</span>
+    <span onclick="scrol('W')">W</span>
+    <span onclick="scrol('X')">X</span>
+    <span onclick="scrol('Y')">Y</span>
+    <span onclick="scrol('Z')">Z</span>
     </div>
     </div>
     
@@ -68,7 +68,7 @@
   let e = document.createElement("div");
   e.className = "card";
   e.innerHTML = `<div class="hea">
-  <div class="word-title" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
+  <div class="wdddd" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
   <div style="display:flex;gap:15px;">
   <i class="bi bi-search" onclick="feta(this.parentNode.parentNode.children[0].innerText,this.parentNode.parentNode)"></i>
   </div>

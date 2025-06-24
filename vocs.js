@@ -6,7 +6,7 @@ const search = document.getElementById('search');
     search.addEventListener('input', () => {
       const val = search.value.toLowerCase();
       cards.forEach(card => {
-        const word = card.querySelector('.word-title').innerText.toLowerCase();
+        const word = card.querySelector('.wdddd').innerText.toLowerCase();
         card.style.display = word.includes(val) ? 'block' : 'none';
       });
     });
@@ -18,8 +18,8 @@ const search = document.getElementById('search');
     const cards = Array.from(document.querySelectorAll('.card'));
     
     cards.sort((a, b) => {
-    const wordA = a.querySelector('.word-title').innerText.toLowerCase();
-    const wordB = b.querySelector('.word-title').innerText.toLowerCase();
+    const wordA = a.querySelector('.wdddd').innerText.toLowerCase();
+    const wordB = b.querySelector('.wdddd').innerText.toLowerCase();
     return wordA.localeCompare(wordB);
     });
     
@@ -28,10 +28,10 @@ const search = document.getElementById('search');
     
     sortw();
     
-    function scrollToLetter(letter) {
+    function scrol(letter) {
     const cards = document.querySelectorAll('.card');
     for (let card of cards) {
-    const word = card.querySelector('.word-title').innerText.trim().toUpperCase();
+    const word = card.querySelector('.wdddd').innerText.trim().toUpperCase();
     if (word.startsWith(letter)) {
     card.scrollIntoView({ behavior: "smooth", block: "start" });
     break;
@@ -40,6 +40,6 @@ const search = document.getElementById('search');
     }
     
     setTimeout(()=>{
-    let xc= document.getElementsByClassName("word-title").length;
+    let xc= document.getElementsByClassName("wdddd").length;
     document.getElementById("tot").innerText=xc;
     },1000);

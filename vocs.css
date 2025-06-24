@@ -86,7 +86,7 @@
       color:white;
     }
 
-    .word-title {
+    .wdddd {
       font-size: 1.4rem;
       font-weight: bold;
       color: var(--accent);
@@ -106,7 +106,7 @@
     }
 
     @media screen and (max-width: 480px) {
-      .word-title {
+      .wdddd {
         font-size: 1.2rem;
       }
 
