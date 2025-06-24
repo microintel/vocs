@@ -11,11 +11,7 @@ const search = document.getElementById('search');
       });
     });
 
-    function toggleTheme() {
-      const isLight = body.getAttribute('data-theme') === 'light';
-      body.setAttribute('data-theme', isLight ? 'dark' : 'light');
-      themeBtn.textContent = isLight ? 'Dark' : 'Light';
-    }
+    
     
     function sortw() {
     const wrapper = document.querySelector('.wrapper');

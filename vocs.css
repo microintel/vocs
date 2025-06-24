@@ -71,6 +71,7 @@
       background: var(--card);
       border-radius: 12px;
       padding: 1rem;
+      margin:13px;
       box-shadow: 0 12px 12px var(--shadow);
       transition: transform 0.2s ease;
       border:1px solid var(--text);
@@ -90,7 +91,7 @@
       font-weight: bold;
       color: var(--accent);
       margin-bottom: 0.5rem;
-      border-bottom: 2px solid var(--primary);
+      
       padding-bottom: 4px;
     }
 
@@ -151,3 +152,98 @@
     .az-scroll span:hover {
     background: var(--accent);
     }
+    
+    .hea{
+    
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom: 2px solid var(--primary);
+    }
+    
+    .hea i{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+    padding-bottom: 4px;
+    }
+    
+    
+    h2 {
+    color:white;
+    }
+    ul {
+    padding-left: 20px;
+    }
+    li{
+    margin:5px;
+    list-style-type:none;
+    }
+    audio {
+    margin-top: 10px;
+    
+    }
+    .api-link {
+    margin-top: 15px;
+    font-size: 14px;
+    }
+    .api-link a {
+    color: #007bff;
+    text-decoration: none;
+    }
+    h1{
+    margin:0px;
+    padding:0px;
+    }
+    
+    .nkn{
+    display:flex;
+    justify-content:space-between;
+    }
+    
+    i{
+    color:white;
+    
+    }
+    
+    .au{
+    
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    }
+    
+    h3{
+    color:orange;
+    }
+    
+    strong{
+    color:lightgreen;
+    }
+    
+    .aie{
+    
+    position:fixed;
+    bottom:0px;
+    z-index:10;
+    margin:0px;
+    padding:0px;
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+    align-items:center;
+    height:60px;
+    background-color:black;
+    
+    }
+    
+    .aie i{
+    margin:0px;
+    padding:3px;
+    font-size:1.3rem;
+    
+    }
+    
+   
