@@ -16,7 +16,7 @@
   <div class="wrapper">
   <center><h2 style="margin:1px;"> Voc <sup id="tot"></sup></h2></center>
     <div class="topbar">
-      <input type="text" id="search" placeholder="Search word..." />
+      <input type="text" id="search" oninput="serT()" placeholder="Search word..." />
      
     </div>
     
@@ -52,7 +52,7 @@
     </div>
     
     <div id="www">
-    
+    Fetching...
     </div>
   </div>
   <script type="text/javascript">
@@ -68,7 +68,7 @@
   let e = document.createElement("div");
   e.className = "card";
   e.innerHTML = `<div class="hea">
-  <div class="wdddd" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
+  <div class="word-title" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
   <div style="display:flex;gap:15px;">
   <i class="bi bi-search" onclick="feta(this.parentNode.parentNode.children[0].innerText,this.parentNode.parentNode)"></i>
   </div>
@@ -76,9 +76,20 @@
   <div></div>`;
   o.appendChild(e);
   }
+  
+  sortw();
+  setTimeout(()=>{
+  let xc= document.getElementsByClassName("word-title").length;
+  document.getElementById("tot").innerText=xc;
+  },2000);
   }
   
+  setTimeout(()=>{
   fetwo("https://microintel.github.io/vocs/wd.json","www");
+  },1000);
+  
+  
+  
   
   
   async function feta(wo, par) {
