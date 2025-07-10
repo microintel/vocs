@@ -70,7 +70,7 @@
   }
   
   setTimeout(()=>{
- fetwo("https://forsomething2410.github.io/vocs/wd.json","www");
+ fetwo("https://microintel.github.io/vocs/wd.json","www");
   },1000);
   
   
@@ -192,7 +192,7 @@
   
   function dateWd(z){
  document.querySelectorAll(".card").forEach((c)=>{ c.remove(); });
-   fetwo(`https://forsomething2410.github.io/vocs/dailywd/${z}`,"www");
+   fetwo(`https://microintel.github.io/vocs/dailywd/${z}`,"www");
    let resu = z.replace('__.json', '');
    document.getElementById("dail").textContent=resu;
   }
@@ -200,7 +200,7 @@
   </script>
   <script>
   async function ff() {
-  const u = `https://forsomething2410.github.io/vocs/wddailylist.json`;
+  const u = `https://microintel.github.io/vocs/wddailylist.json`;
   const res = await fetch(u);
   const j = await res.json();
   let h = '';
