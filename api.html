@@ -115,8 +115,7 @@
       }
 
       const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-      // apiLink.innerHTML = `🔗 Reference: <a href="${apiUrl}" target="_blank">${apiUrl}</a>`;
-
+      
       try {
         output.innerHTML=`<p style="text-align:center;margin:10px;padding:10px;"> Searchinggggggggggg </p>`;
         const res = await fetch(apiUrl);
@@ -183,7 +182,7 @@
     
     function f() {
     c = 0;
-    location.href="vocs.html";
+    location.href="home.html";
     }
     
     document.getElementById("redvi").onclick = function() {
