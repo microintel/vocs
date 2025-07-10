@@ -1,7 +1,17 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vocat</title>
   <style>
+  :root {
+  --bg: #121212;
+  --text: #ffffff;
+  --primary: #f56c57;
+  --card: #1f1f1f;
+  --accent: #ffb6b6;
+  --shadow: rgba(0, 0, 0, 0.5);
+  
+  }
     body {
       background:black;
       padding: 20px;
@@ -38,12 +48,23 @@
       margin-top: 10px;
       font-weight: bold;
     }
+    
+    input[type="text"] {
+    padding: 10px 14px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background:black;
+    color: white;
+    font-size: 1rem;
+    width:100%;
+    }
   </style>
 </head>
 <body>
 
   <h1>VocCat</h1>
-<br><br>
+<br>
+<input placeholder="Seach Cat" oninput="fsea(this.value)" type="text"><br><br>
   <div class="fs">
     <a href="https://microintel.github.io/endgram/file/co6.html" class="f"><div class="i">📂</div><div class="n">Nouns</div></a>
     <a href="https://microintel.github.io/endgram/file/co6.html" class="f"><div class="i">📂</div><div class="n">Pronouns</div></a>
@@ -110,6 +131,14 @@
     <a href="https://microintel.github.io/endgram/file/co6.html" class="f"><div class="i">📂</div><div class="n">Festivals</div></a>
     <a href="https://microintel.github.io/endgram/file/co6.html" class="f"><div class="i">📂</div><div class="n">Religion</div></a>
   </div>
+<script type="text/javascript">
 
+function fsea(t) {
+  document.querySelectorAll('.n').forEach(d => {
+    const p = d.closest('a.f');
+    p.style.display = d.textContent.toLowerCase().includes(t.toLowerCase()) ? '' : 'none';
+  });
+}
+</script>
 </body>
 </html>
