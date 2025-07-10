@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="manifest" href="manifest.json">
+  <title>Voc</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: black;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 95vh;
+    }
+    h1 {
+      margin: 10px 0 0;
+    }
+    .cent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .fs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .f {
+      width: 140px;
+      background: black;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+      text-decoration: none;
+      border: 1px solid white;
+      color: white;
+    }
+    .f:hover {
+      transform: scale(1.05);
+      background: grey;
+    }
+    .i {
+      font-size: 40px;
+    }
+    .n {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    img {
+      width: 50vw;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>VocCat</h1>
+
+  <div class="cent">
+    <div class="fs">
+      <a href="api.html" class="f"><div class="i">📂</div><div class="n">Search Word</div></a>
+      <a href="vocs.html" class="f"><div class="i">📂</div><div class="n">Vigguu</div></a>
+      <a href="cat/index.html" class="f"><div class="i">📂</div><div class="n">Voc Category</div></a>
+    </div>
+  </div>
+
+  <img src="https://raw.githubusercontent.com/microintel/endgram/main/photo/devloped%20by%20microintel%20game%20of%20thrones.png">
+
+</body>
+</html>

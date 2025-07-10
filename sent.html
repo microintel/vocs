@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Sent</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f0f8ff;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border-left: 4px solid #007acc;
+    }
+  </style>
+</head>
+<body>
+  <input id="sentence" placeholder="Enter sentence in English..." />
+  <button onclick="getMeaning()">Explain</button>
+
+  <div id="output"></div>
+
+  <script>
+    async function getMeaning() {
+      const sentence = document.getElementById("sentence").value.trim();
+      if (!sentence) return alert("Please enter a sentence!");
+
+      document.getElementById("output").innerHTML = "⏳ Loading meaning...";
+
+      const res = await fetch("https://libretranslate.de/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          q: sentence,
+          source: "en",
+          target: "hi", // Hindi (change to "bn", "te", "ta" for Bengali, Telugu, Tamil etc.)
+          format: "text"
+        })
+      });
+
+      const data = await res.json();
+      document.getElementById("output").innerHTML = `<strong>Meaning:</strong><br>${data.translatedText}`;
+    }
+  </script>
+</body>
+</html>

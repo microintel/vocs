@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voc</title>
+  <link rel="stylesheet" href="vocs.css">
+  
+</head>
+
+<body>
+
+  <div class="wrapper">
+  <center><h1 style="margin:1px;"> Voc</h1></center>
+    <div class="topbar">
+      <input type="text" id="search" oninput="serT()" placeholder="Search word..." /> 
+     
+    </div>
+    
+    <div class="az-menu">
+    <button id="tot" class="aaa">0 </button>
+    <button class="aaa" onclick="azt()"> A-Z </button>
+    <button onclick="ff()" id="dail" class="aaa"> DAILY </button>
+    <button class="aaa" onclick="downl()"><i class="bi bi-download"></i></button>
+    </div>
+    <div id="www">
+    Fetching...
+    </div>
+  </div>
+  <script type="text/javascript">
+  
+  let td= new Date();
+  td=td.toISOString();
+  td=td.split('T')[0];
+  async function fetwo(u, i) {
+  let o = document.getElementById(i);
+  document.getElementById("www").innerHTML="";
+  o.textContent = "Loading...";
+  try{
+  let r = await fetch(u);
+  let d = await r.json();
+  o.textContent = "";
+  for (let x of d) {
+  let e = document.createElement("div");
+  e.className = "card";
+  e.innerHTML = `<div class="hea">
+  <div class="word-title" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
+  <div style="display:flex;gap:15px;">
+  <i class="bi bi-search" onclick="feta(this.parentNode.parentNode.children[0].innerText,this.parentNode.parentNode)"></i>
+  </div>
+  </div>
+  <div></div>`;
+  o.appendChild(e);
+  }
+  document.getElementById("tot").innerHTML="...";
+  sortw();
+  setTimeout(()=>{
+  let xc= document.getElementsByClassName("word-title").length;
+  document.getElementById("tot").innerHTML=xc;
+  },2000);
+  }
+  catch(e){
+  o.textContent="File Not Found";
+  }
+  }
+  
+  setTimeout(()=>{
+ fetwo("https://forsomething2410.github.io/vocs/wd.json","www");
+  },1000);
+  
+  
+  
+  
+  
+  async function feta(wo, par) {
+  par = par.parentNode;
+  const w = wo.trim();
+  const o = par.children[1];
+  o.style.display = "block";
+  o.innerHTML = "";
+  if (!w) {
+  o.innerHTML = "<p>Please enter a word.</p>";
+  return;
+  }
+  
+  const u = `https://api.dictionaryapi.dev/api/v2/entries/en/${w}`;
+  const gimg = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(w)}`;
+  const placeholder = `https://loremflickr.com/600/300/${encodeURIComponent(w)}?lock=${Date.now()}`;
+  
+  try {
+  o.innerHTML = `<p style="text-align:center;margin:10px;padding:10px;"> Searchinggggggggggg </p>`;
+  const r = await fetch(u);
+  const d = await r.json();
+  
+  if (d.title === "No Definitions Found") {
+  o.innerHTML = `<p>No result found , <br><br> Google It  "<strong onclick="location.href='https://www.google.com/search?q=${w} word meaning'">${w}</strong>".</p>`;
+  return;
+  }
+  
+  let h = `
+  <div style="margin-bottom:10px;">
+  <div style="display:flex;justify-content:space-around;align-items:center;margin-top:6px;">
+  <a href="${gimg}" target="_blank" style="text-decoration:none;">
+  <button style="padding:6px 12px;border:none;border-radius:12px;background:black;color:white;"> Sarch ${wo} Image </button>
+  </a>
+  
+  <button style="color:white;background-color:black;border:1px solid black;border-radius:12px;font-size:1.1rem;" onclick="this.parentNode.parentNode.parentNode.style.display='none'"> Hide </button>
+  </div>
+  </div>
+  `;
+  
+  d.forEach(e => {
+  if (e.phonetics && e.phonetics.length > 0) {
+  const a = e.phonetics.find(p => p.audio);
+  if (a && a.audio) {
+ 
+  h += `<font class="au" onclick="this.children[1].play()"> Pronounce &nbsp; <i style="font-size:1.5rem;" class="bi bi-volume-up"></i>
+  <audio style="display:none;" controls src="${a.audio}"></audio>
+  </font><br>`;
+  }
+  }
+  
+  if (e.origin) {
+  h += `<strong>Origin : </strong> ${e.origin}<br>`;
+  }
+  
+  e.meanings.forEach(m => {
+  h += `<h3>Meaning</h3>`;
+  h += `<strong>Part of Speech : </strong> ${m.partOfSpeech}<br><br>`;
+  h += `<strong>Definitions : </strong><br><ul>`;
+  m.definitions.forEach((df, j) => {
+  h += `<li><strong>${j + 1} : </strong> ${df.definition}<br>`;
+  if (df.example) {
+  h += `<br><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example :- &nbsp; </em> "${df.example}"<br><br>`;
+  }
+  h += `</li>`;
+  });
+  h += `</ul>`;
+  
+  if (m.synonyms && m.synonyms.length > 0) {
+  h += `<strong>Synonyms : </strong> ${m.synonyms.join(", ")}<br><br>`;
+  }
+  if (m.antonyms && m.antonyms.length > 0) {
+  h += `<strong>Antonyms : </strong> ${m.antonyms.join(", ")}<br><br>`;
+  }
+  
+  h += `<hr>`;
+  });
+  });
+  
+  o.innerHTML = h;
+  } catch (e) {
+  o.innerHTML = "<p style='color:red;'>Error</p>";
+  console.error(e);
+  }
+  }
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+  function azt() {
+  let h = '<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">';
+  for (let i = 65; i <= 90; i++) {
+  let l = String.fromCharCode(i);
+  h += `<span 
+  style="cursor:pointer;padding:10px 15px;background:#3498db;color:white;
+  border-radius:5px;font-size:20px;"
+  onclick="go('${l}')">${l}</span>`;
+  }
+  h += '</div>';
+  Swal.fire({ 
+  title: 'A-Z',
+   html: h,
+    showConfirmButton: false,
+    showCancelButton:true });
+  }
+  
+  function go(l) {
+  Swal.close();
+  setTimeout(() => doSo(l), 300); 
+  }
+  
+  function doSo(l) {
+  scrol(l);
+  }
+  
+  
+  function dateWd(z){
+ document.querySelectorAll(".card").forEach((c)=>{ c.remove(); });
+   fetwo(`https://forsomething2410.github.io/vocs/dailywd/${z}`,"www");
+   let resu = z.replace('__.json', '');
+   document.getElementById("dail").textContent=resu;
+  }
+  
+  </script>
+  <script>
+  async function ff() {
+  const u = `https://forsomething2410.github.io/vocs/wddailylist.json`;
+  const res = await fetch(u);
+  const j = await res.json();
+  let h = '';
+  j.forEach(f => {
+  if (true) {
+  h += `<button class="aaa" style="margin:5px;padding:10px;border:none;" onclick="fc('${f}')">${f}</button><br>`;
+  }
+  });
+  Swal.fire({ 
+  title: 'WD Files', 
+  html: h, 
+  showConfirmButton: false,
+  showCancelButton:true,
+  showCloseButton:true
+   });
+  }
+  
+  function fc(n) {
+  Swal.close();
+  af(n);
+  }
+  
+  function af(f) {
+  dateWd(f);
+  }
+  
+  </script>
+  
+  <script type="text/javascript" src="vocs.js"></script>
+</body>
+</html>
