@@ -1,0 +1,240 @@
+:root {
+      --bg: #121212;
+      --text: #ffffff;
+      --primary: #f56c57;
+      --card: #1f1f1f;
+      --accent: #ffb6b6;
+      --shadow: rgba(0, 0, 0, 0.5);
+      
+    }
+
+    [data-theme="dark"] {
+      
+      --bg: #fdfdfd;
+      --text: #111;
+      --primary: #f56c57;
+      --card: #ffffff;
+      --accent: #d94a32;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+    }
+    input[type="date"]{
+    width:60%;
+    padding: 10px 14px;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text);
+    font-size: 1rem;
+    }
+    
+    .aaa{
+    padding: 10px 14px;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text);
+    font-size: 1rem;
+    }
+
+    .theme-btn {
+      margin-left: 10px;
+      padding: 10px 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem;
+      margin:6px;
+      box-shadow: 0 12px 12px var(--shadow);
+      transition: transform 0.2s ease;
+      border:1px solid var(--text);
+    }
+    
+    #tot{
+    font-size:0.9rem;
+    }
+
+    .card:hover {
+      background-color:#3f2f3f;
+      color:white;
+    }
+
+    .word-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      
+      padding-bottom: 4px;
+    }
+
+    .card p {
+      margin: 4px 0;
+    }
+
+    ul {
+      margin: 8px 0 0 1rem;
+      padding: 0;
+      list-style: square;
+    }
+
+    @media screen and (max-width: 480px) {
+      .word-title {
+        font-size: 1.2rem;
+      }
+
+      .theme-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      input[type="text"] {
+        font-size: 1rem;
+      }
+    }
+    
+    .az-menu {
+    display:flex;
+    justify-content:space-around;
+    }
+    
+    
+    .hea{
+    
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom: 2px solid var(--primary);
+    }
+    
+    .hea i{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+    padding-bottom: 4px;
+    }
+    
+    
+    h2 {
+    color:white;
+    }
+    ul {
+    padding-left: 20px;
+    }
+    li{
+    margin:5px;
+    list-style-type:none;
+    }
+    audio {
+    margin-top: 10px;
+    
+    }
+    .api-link {
+    margin-top: 15px;
+    font-size: 14px;
+    }
+    .api-link a {
+    color: #007bff;
+    text-decoration: none;
+    }
+    h1{
+    margin:0px;
+    padding:0px;
+    }
+    
+    .nkn{
+    display:flex;
+    justify-content:space-between;
+    }
+    
+    i{
+    color:white;
+    
+    }
+    
+    .au{
+    
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    }
+    
+    h3{
+    color:orange;
+    }
+    
+    strong{
+    color:lightgreen;
+    }
+    
+    .aie{
+    
+    position:fixed;
+    bottom:0px;
+    z-index:10;
+    margin:0px;
+    padding:0px;
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+    align-items:center;
+    height:60px;
+    background-color:black;
+    
+    }
+    
+    .aie i{
+    margin:0px;
+    padding:3px;
+    font-size:1.3rem;
+    
+    }
+    
+   
