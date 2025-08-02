@@ -31,13 +31,26 @@ function serT() {
     const wrapper = document.querySelector('.wrapper');
     const cards = Array.from(document.querySelectorAll('.card'));
     
-    cards.sort((a, b) => {
+    const seen = new Set();
+    const uniqueCards = [];
+    
+    cards.forEach(card => {
+    const word = card.querySelector('.word-title').innerText.toLowerCase();
+    if (!seen.has(word)) {
+    seen.add(word);
+    uniqueCards.push(card);
+    } else {
+    card.remove();
+    }
+    });
+    
+    uniqueCards.sort((a, b) => {
     const wordA = a.querySelector('.word-title').innerText.toLowerCase();
     const wordB = b.querySelector('.word-title').innerText.toLowerCase();
     return wordA.localeCompare(wordB);
     });
     
-    cards.forEach(card => wrapper.appendChild(card));
+    uniqueCards.forEach(card => wrapper.appendChild(card));
     }
     
     
