@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>Exam</title>
+  <style>
+    body { 
+    font-family: sans-serif; 
+    padding: 10px;
+    background-color:black;
+    color:white;
+    }
+    input{
+     padding: 10px; 
+     font-size: 16px; 
+     margin-top: 10px; 
+     background-color:black;
+     color:white;
+     width:100%;
+     border:1.4px solid white;
+     border-radius:12px;
+     }
+    #e { 
+    margin-top: 20px; 
+    }
+    p {
+     margin: 20px 0; 
+     
+     }
+    
+    .bi-translate{
+    margin-left:5px;
+    background-color:black;
+    color:orange;
+    border:none;
+    font-size:1.3rem;
+    }
+    
+    #bn{
+    
+    }
+    
+    i{
+    margin-left:5px;
+    font-size:1.2rem;
+    }
+    
+    #nk{
+    
+    display:flex;
+    margin:10px;
+    justify-content:space-around;
+    margin-top:35px;
+    }
+    
+    h2{
+    margin:0px;
+    }
+  </style>
+</head>
+<body>
+  <h2>SentX</h2>
+  <input type="text" id="w" placeholder="Word" />
+  <div id="nk">
+  <i id="bn" class="bi bi-search" onclick="g()"></i>
+  <i onclick="nkn()" class="bi bi-google"></i>
+  </div>
+  <div id="e"></div>
+
+  <script>
+  
+  function nkn(){
+  const word = document.getElementById("w").value.trim();
+  if (!word) return alert('Enter word');
+  const url = `https://www.google.com/search?q=example+sentences+of+${encodeURIComponent(word)}`;
+  window.open(url, '_blank');
+  
+  }
+    async function g() {
+      const w = document.getElementById('w').value.trim();
+      const e = document.getElementById('e');
+      e.innerHTML = '';
+      if (!w) return alert('Enter word');
+      try {
+        const r = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w}`);
+        const d = await r.json();
+        const x = [];
+        d.forEach(a => {
+          a.meanings.forEach(b => {
+            b.definitions.forEach(c => {
+              if (c.example) x.push(c.example);
+            });
+          });
+        });
+        if (x.length === 0) e.innerHTML = '<p>No examples</p>';
+        else x.forEach((t, i) => {
+          const p = document.createElement('p');
+          const b = document.createElement('button');
+          p.textContent = (i + 1) + '. ' + t;
+          b.className = 'bi bi-translate';
+          b.onclick = () => {
+            const url = 'https://translate.google.com/?sl=en&tl=kn&text=' + encodeURIComponent(t) + '&op=translate';
+            window.open(url, '_blank');
+          };
+          p.appendChild(b);
+          e.appendChild(p);
+        });
+      } catch {
+        e.innerHTML = '<p>Error</p>';
+      }
+    }
+  </script>
+</body>
+</html>
