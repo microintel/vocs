@@ -100,7 +100,7 @@
     async function g() {
       const w = document.getElementById('w').value.trim();
       const e = document.getElementById('e');
-      e.innerHTML = 'Searchingggggg...';
+      e.innerHTML = '';
       if (!w) return alert('Enter word');
       try {
         const r = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${w}`);
@@ -109,12 +109,18 @@
         d.forEach(a => {
           a.meanings.forEach(b => {
             b.definitions.forEach(c => {
-              if (c.example) x.push(c.example);
+            
+              if (c.example){
+              x.push(c.example);
+             
+              }
             });
           });
         });
         if (x.length === 0) e.innerHTML = '<p>No examples</p>';
+       
         else x.forEach((t, i) => {
+        
           const p = document.createElement('p');
           const b = document.createElement('button');
           p.textContent = (i + 1) + '. ' + t;
@@ -123,7 +129,7 @@
             const url = 'https://translate.google.com/?sl=en&tl=kn&text=' + encodeURIComponent(t) + '&op=translate';
             window.open(url, '_blank');
           };
-          e.innerHTML="";
+          
           p.appendChild(b);
           e.appendChild(p);
          // 
