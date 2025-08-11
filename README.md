@@ -4,50 +4,31 @@ Welcome to the **vocs** repository!
 
 ## Overview
 
-**vocs** is a project designed to [briefly describe the purpose of your project, e.g., manage vocabulary sets, optimize communication services, etc.].  
-This repository contains the source code, documentation, and resources to help you get started and contribute.
+This project is maintained by [microintel](https://github.com/microintel) and is publicly available on GitHub.  
+The repository is primarily written in HTML.
 
 ## Features
 
-- Feature 1: [Describe key feature]
-- Feature 2: [Describe another feature]
-- Feature 3: [Additional feature]
+- Public repository
+- Supports issues, downloads, projects, and wiki
+- GitHub Pages enabled
 
 ## Getting Started
 
-### Prerequisites
-
-- [List required software, libraries, language version, etc.]
-
-### Installation
-
-Clone the repository:
-
+To get started, clone the repository:
 ```bash
 git clone https://github.com/microintel/vocs.git
-cd vocs
 ```
-
-Install dependencies:
-
-```bash
-# example for Python projects
-pip install -r requirements.txt
-```
-
-### Usage
-
-[Explain how to use the project. Include basic commands, configuration, or links to documentation.]
+Then, explore the codebase and start contributing!
 
 ## Contributing
 
-Contributions are welcome!  
-Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Please open an issue or submit a pull request with your suggestions or improvements.
 
 ## License
 
-This project is licensed under the [LICENSE](LICENSE).
+This project currently does not specify a license. Please contact the repository owner for more information.
 
-## Contact
+---
 
-For questions or support, please open an issue or contact the maintainer at [your-email@example.com].
+For more information, visit the [repository page](https://github.com/microintel/vocs).
