@@ -1,31 +1,18 @@
 
 function serT() {
-  const val = document.getElementById('search').value.trim().toLowerCase();
-  const cards = document.getElementsByClassName('card');
 
+  const val = document.getElementById('search').value.trim().toLowerCase();
+  
   if (!val) {
-    for (let card of cards) card.style.display = 'block';
+    appendWords(newDa, "www"); 
     return;
   }
-
-  let found = false;
-
-  for (let i = 0; i < cards.length; i++) {
-    const titleEl = cards[i].querySelector('.word-title');
-    if (!titleEl) continue;
-
-    const word = titleEl.textContent.trim().toLowerCase();
-
-    if (word.includes(val)) {
-      cards[i].style.display = 'block';
-      found = true;
-    } else {
-      cards[i].style.display = 'none';
-      if (!found && word > val) break;
-    }
-  }
+  let filtered = newDa.filter(x => {
+    let w = (typeof x === "object" ? JSON.stringify(x) : x).toLowerCase();
+    return w.includes(val);
+  });
+  appendWords(filtered, "www");
 }
-    
     
     function sortw() {
     const wrapper = document.querySelector('.wrapper');

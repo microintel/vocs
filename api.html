@@ -87,20 +87,83 @@
     strong{
     color:lightgreen;
     }
+    
+    
+  </style>
+  
+  <style>
+  #sug{
+  position: absolute;
+  background: black;
+  border: 1px solid var(--primary);
+  display: none;
+  min-height:100px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  border-radius:12px;
+  margin-top:6px;
+  }
+  #sug div {
+  padding: 4px;
+  font-size:1.4rem;
+  }
+  #sug div:hover {
+  background: #eee;
+  }
   </style>
 </head>
 <body>
   <div class="container">
     <center><h1 id="redvi"> Voc</h1></center><br>
     <div class="nkn">
-    <input type="text" id="wordInput" placeholder="Enter a word..." />
+    <input type="text" oninput="showSu(this.value)" id="wordInput" placeholder="Enter a word..." />
     <button onclick="feta()">Search</button>
     </div>
     <div id="output"></div>
     <div class="api-link" id="apiLink"></div>
   </div>
 
+<script>
+  function showSu(query) {
+  const input = document.getElementById('wordInput');
+  
+  let box = document.getElementById('sug');
+  if (!box) {
+  box = document.createElement('div');
+  box.id = 'sug';
+  document.body.appendChild(box);
+  document.addEventListener('click', e => {
+  if (!box.contains(e.target) && e.target !== input) box.style.display = 'none';
+  });
+  }
+  
+  if (!query) { box.style.display = 'none'; return; }
+  
+  fetch('https://api.datamuse.com/sug?s=' + encodeURIComponent(query))
+  .then(res => res.json())
+  .then(data => {
+  box.innerHTML = '';
+  if (!data.length) { box.style.display = 'none'; return; }
+  const rect = input.getBoundingClientRect();
+  box.style.left = rect.left + 'px';
+  box.style.top = rect.bottom + window.scrollY + 'px';
+  box.style.width = rect.width + 'px';
+  data.forEach(item => {
+  const div = document.createElement('div');
+  div.textContent = item.word;
+  div.onclick = () => { input.value = item.word;feta();
+   box.style.display = 'none'; };
+  box.appendChild(div);
+  });
+  box.style.display = 'block';
+  })
+  .catch(() => box.style.display = 'none');
+  }
+  </script>
   <script>
+  
+  
     async function feta() {
      
       const word = document.getElementById("wordInput").value.trim();

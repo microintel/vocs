@@ -10,7 +10,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Voc</title>
   <link rel="stylesheet" href="vocs.css">
-  
+  <style>
+  #sug{
+  position: absolute;
+  background: black;
+  border: 1px solid var(--primary);
+  display: none;
+  min-height:100px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  border-radius:12px;
+  margin-top:6px;
+  }
+  #sug div {
+  padding: 4px;
+  font-size:1.4rem;
+  }
+  #sug div:hover {
+  background: #eee;
+  }
+  </style>
 </head>
 
 <body>
@@ -18,8 +38,8 @@
   <div class="wrapper">
   <center><h1 style="margin:1px;"> Voc</h1></center>
     <div class="topbar">
-      <input type="text" id="search" oninput="serT()" placeholder="Search word..." /> 
-     
+      <input type="text" id="search" oninput="showSu(this.value)" placeholder="Enter word..." /> 
+     <button onclick="serT()"> Search</button>
     </div>
     
     <div class="az-menu">
@@ -28,53 +48,110 @@
     <button onclick="ff()" id="dail" class="aaa"> DAILY </button>
     <button class="aaa" onclick="downl()"><i class="bi bi-download"></i></button>
     </div>
+    
     <div id="www">
     Fetching...
     </div>
+    
+    
   </div>
+  
+  
+  
+  <script>
+  
+  function showSu(query) {
+  const input = document.getElementById('search');
+  
+  let box = document.getElementById('sug');
+  if (!box) {
+  box = document.createElement('div');
+  box.id = 'sug';
+  document.body.appendChild(box);
+  document.addEventListener('click', e => {
+  if (!box.contains(e.target) && e.target !== input) box.style.display = 'none';
+  });
+  }
+  
+  if (!query) { box.style.display = 'none'; return; }
+  
+  // Filter from local JSON instead of Datamuse
+  let filtered = newDa.filter(word =>
+  word.toLowerCase().startsWith(query.toLowerCase())
+  );
+  
+  box.innerHTML = '';
+  if (!filtered.length) { box.style.display = 'none'; return; }
+  
+  const rect = input.getBoundingClientRect();
+  box.style.left = rect.left + 'px';
+  box.style.top = rect.bottom + window.scrollY + 'px';
+  box.style.width = rect.width + 'px';
+  
+  filtered.forEach(item => {
+  const div = document.createElement('div');
+  div.textContent = item;
+  div.onclick = () => {
+   input.value = item; 
+   serT(item); 
+   box.style.display = 'none';
+    };
+  box.appendChild(div);
+  });
+  
+  box.style.display = 'block';
+  }
+  </script>
+  
   <script type="text/javascript">
   
-  let td= new Date();
-  td=td.toISOString();
-  td=td.split('T')[0];
-  async function fetwo(u, i) {
-  let o = document.getElementById(i);
-  document.getElementById("www").innerHTML="";
-  o.textContent = "Loading...";
-  try{
-  let r = await fetch(u);
-  let d = await r.json();
-  o.textContent = "";
-  for (let x of d) {
-  let e = document.createElement("div");
-  e.className = "card";
-  e.innerHTML = `<div class="hea">
-  <div class="word-title" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
-  <div style="display:flex;gap:15px;">
-  <i class="bi bi-search" onclick="feta(this.parentNode.parentNode.children[0].innerText,this.parentNode.parentNode)"></i>
-  </div>
-  </div>
-  <div></div>`;
-  o.appendChild(e);
-  }
-  document.getElementById("tot").innerHTML="...";
-  sortw();
-  setTimeout(()=>{
-  let xc= document.getElementsByClassName("word-title").length;
-  document.getElementById("tot").innerHTML=xc;
-  },2000);
-  }
-  catch(e){
-  o.textContent="File Not Found";
-  }
-  }
-  
-  setTimeout(()=>{
- fetwo("https://microintel.github.io/vocs/wd.json","www");
-  },1000);
-  
-  
-  
+ let td = new Date();
+ let newDa;
+ td = td.toISOString().split('T')[0];
+ 
+ async function fetwo(u, i) {
+ let o = document.getElementById(i);
+ document.getElementById("www").innerHTML = "";
+ o.textContent = "Loading...";
+ 
+ try {
+ let r = await fetch(u);
+ let d = await r.json();
+ newDa = d; 
+ o.textContent = "";
+ appendWords(newDa, "www"); 
+ } catch (e) {
+ o.textContent = "File Not Found";
+ }
+ }
+ 
+ 
+ function appendWords(list, i) {
+ let o = document.getElementById(i);
+ o.innerHTML = "";
+ let frag = document.createDocumentFragment();
+ 
+ for (let x of list) {
+ let e = document.createElement("div");
+ e.className = "card";
+ e.innerHTML = `
+ <div class="hea">
+ <div class="word-title" contenteditable="true">${typeof x === "object" ? JSON.stringify(x) : x}</div>
+ <div style="display:flex;gap:15px;">
+ <i class="bi bi-search" onclick="feta(this.parentNode.parentNode.children[0].innerText,this.parentNode.parentNode)"></i>
+ </div>
+ </div>
+ <div></div>`;
+ frag.appendChild(e);
+ }
+ 
+ o.appendChild(frag);
+ document.getElementById("tot").innerHTML = list.length;
+ }
+ 
+ setTimeout(() => {
+ fetwo("https://microintel.github.io/vocs/wd.json", "www");
+ }, 1000);
   
   
   async function feta(wo, par) {

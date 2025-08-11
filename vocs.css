@@ -45,9 +45,19 @@
       justify-content: space-between;
       align-items: center;
     }
+    
+    .topbar button{
+    padding:5px;
+    height:90%;
+    color:var(--text);
+    border-radius:12px;
+    background-color:var(--primary);
+    border:1px solid var(--primary);
+    }
 
     input[type="text"] {
-      flex: 1;
+      
+      width:80%;
       padding: 10px 14px;
       border: 1px solid var(--primary);
       border-radius: 8px;
