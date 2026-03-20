@@ -1,1 +1,2402 @@
-
+[
+  {
+    "word": "take out_1",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_2",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_3",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_4",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_5",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_6",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_7",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_8",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_9",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_10",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_11",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_12",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_13",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_14",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_15",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_16",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_17",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_18",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_19",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_20",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_21",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_22",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_23",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_24",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_25",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_26",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_27",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_28",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_29",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_30",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_31",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_32",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_33",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_34",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_35",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_36",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_37",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_38",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_39",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_40",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_41",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_42",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_43",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_44",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_45",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_46",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_47",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_48",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_49",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_50",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_51",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_52",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_53",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_54",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_55",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_56",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_57",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_58",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_59",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_60",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_61",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_62",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_63",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_64",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_65",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_66",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_67",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_68",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_69",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_70",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_71",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_72",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_73",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_74",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_75",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_76",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_77",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_78",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_79",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_80",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_81",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_82",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_83",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_84",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_85",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_86",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_87",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_88",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_89",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_90",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_91",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_92",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_93",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_94",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_95",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_96",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_97",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_98",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_99",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_100",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_101",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_102",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_103",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_104",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_105",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_106",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_107",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_108",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_109",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_110",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_111",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_112",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_113",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_114",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_115",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_116",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_117",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_118",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_119",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_120",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_121",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_122",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_123",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_124",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_125",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_126",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_127",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_128",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_129",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_130",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_131",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_132",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_133",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_134",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_135",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_136",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_137",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_138",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_139",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_140",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_141",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_142",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_143",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_144",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_145",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_146",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_147",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_148",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_149",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_150",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_151",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_152",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_153",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_154",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_155",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_156",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_157",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_158",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_159",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_160",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_161",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_162",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_163",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_164",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_165",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_166",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_167",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_168",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_169",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_170",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_171",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_172",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_173",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_174",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_175",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_176",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_177",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_178",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_179",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_180",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_181",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_182",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_183",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_184",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_185",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_186",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_187",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_188",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_189",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_190",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_191",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_192",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_193",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_194",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_195",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_196",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_197",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_198",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_199",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_200",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_201",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_202",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_203",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_204",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_205",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_206",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_207",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_208",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_209",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_210",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_211",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_212",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_213",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_214",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_215",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_216",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_217",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_218",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_219",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_220",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_221",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_222",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_223",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_224",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_225",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_226",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_227",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_228",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_229",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_230",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_231",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_232",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_233",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_234",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_235",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_236",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_237",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_238",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_239",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_240",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_241",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_242",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_243",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_244",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_245",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_246",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_247",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_248",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_249",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_250",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_251",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_252",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_253",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_254",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_255",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_256",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_257",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_258",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_259",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_260",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_261",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_262",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_263",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_264",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_265",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_266",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_267",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_268",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_269",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_270",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_271",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_272",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_273",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_274",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_275",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_276",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_277",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_278",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_279",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_280",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_281",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_282",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_283",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_284",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_285",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_286",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_287",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_288",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_289",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_290",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_291",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_292",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_293",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_294",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_295",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_296",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_297",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_298",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_299",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_300",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_301",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_302",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_303",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_304",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_305",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_306",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_307",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_308",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_309",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_310",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_311",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_312",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_313",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_314",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_315",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_316",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_317",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_318",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_319",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_320",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_321",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_322",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_323",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_324",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_325",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_326",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_327",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_328",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_329",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_330",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_331",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_332",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_333",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_334",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_335",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_336",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_337",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_338",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_339",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_340",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_341",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_342",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_343",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_344",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_345",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_346",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_347",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_348",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_349",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_350",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_351",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_352",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_353",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_354",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_355",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_356",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_357",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_358",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_359",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_360",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_361",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_362",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_363",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_364",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_365",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_366",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_367",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_368",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_369",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_370",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_371",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_372",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_373",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_374",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_375",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_376",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_377",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_378",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_379",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_380",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_381",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_382",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_383",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_384",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_385",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_386",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_387",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_388",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_389",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_390",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_391",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_392",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_393",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_394",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_395",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_396",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_397",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_398",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_399",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_400",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_401",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_402",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_403",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_404",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_405",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_406",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_407",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_408",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_409",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_410",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_411",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_412",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_413",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_414",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_415",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_416",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_417",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_418",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_419",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_420",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_421",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_422",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_423",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_424",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_425",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_426",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_427",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_428",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_429",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_430",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_431",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_432",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_433",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_434",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_435",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_436",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_437",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_438",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_439",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_440",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_441",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_442",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_443",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_444",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_445",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_446",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_447",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_448",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_449",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_450",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_451",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_452",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_453",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_454",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_455",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_456",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_457",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_458",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_459",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_460",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_461",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_462",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_463",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_464",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_465",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_466",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_467",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_468",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_469",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_470",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_471",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_472",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_473",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_474",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_475",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_476",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_477",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_478",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_479",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_480",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_481",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_482",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_483",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_484",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_485",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_486",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_487",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_488",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_489",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_490",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_491",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_492",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_493",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_494",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_495",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_496",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_497",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_498",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_499",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_500",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_501",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_502",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_503",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_504",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_505",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_506",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_507",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_508",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_509",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_510",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_511",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_512",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_513",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_514",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_515",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_516",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_517",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_518",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_519",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_520",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_521",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_522",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_523",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_524",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_525",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_526",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_527",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_528",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_529",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_530",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_531",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_532",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_533",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_534",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_535",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_536",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_537",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_538",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_539",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_540",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_541",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_542",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_543",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_544",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_545",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_546",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_547",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_548",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_549",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_550",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_551",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_552",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_553",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_554",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_555",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_556",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_557",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_558",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_559",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_560",
+    "meaning": "want sleep"
+  },
+  {
+    "word": "take out_561",
+    "meaning": "remove something"
+  },
+  {
+    "word": "waiter_562",
+    "meaning": "male server"
+  },
+  {
+    "word": "weather_563",
+    "meaning": "climate condition"
+  },
+  {
+    "word": "report_564",
+    "meaning": "information"
+  },
+  {
+    "word": "celsius_565",
+    "meaning": "temperature scale"
+  },
+  {
+    "word": "tv show_566",
+    "meaning": "episodic program"
+  },
+  {
+    "word": "jogging_567",
+    "meaning": "light running"
+  },
+  {
+    "word": "fast food_568",
+    "meaning": "quick meal"
+  },
+  {
+    "word": "park_569",
+    "meaning": "public green place"
+  },
+  {
+    "word": "traffic light_570",
+    "meaning": "road signal"
+  },
+  {
+    "word": "sign_571",
+    "meaning": "symbol or instruction"
+  },
+  {
+    "word": "subway_572",
+    "meaning": "underground train"
+  },
+  {
+    "word": "station_573",
+    "meaning": "transport stop"
+  },
+  {
+    "word": "road_574",
+    "meaning": "path for vehicles"
+  },
+  {
+    "word": "street_575",
+    "meaning": "city road"
+  },
+  {
+    "word": "intersection_576",
+    "meaning": "roads crossing"
+  },
+  {
+    "word": "highway_577",
+    "meaning": "fast road"
+  },
+  {
+    "word": "inch_578",
+    "meaning": "small length unit"
+  },
+  {
+    "word": "kilogram_579",
+    "meaning": "weight unit"
+  },
+  {
+    "word": "centimeter_580",
+    "meaning": "length unit"
+  },
+  {
+    "word": "headache_581",
+    "meaning": "head pain"
+  },
+  {
+    "word": "diarrhea_582",
+    "meaning": "stomach illness"
+  },
+  {
+    "word": "symptom_583",
+    "meaning": "sign of illness"
+  },
+  {
+    "word": "stomach ache_584",
+    "meaning": "stomach pain"
+  },
+  {
+    "word": "clean_585",
+    "meaning": "make tidy"
+  },
+  {
+    "word": "dry_586",
+    "meaning": "remove moisture"
+  },
+  {
+    "word": "dust_587",
+    "meaning": "tiny dirt"
+  },
+  {
+    "word": "vacuum_588",
+    "meaning": "clean using machine"
+  },
+  {
+    "word": "interesting_589",
+    "meaning": "exciting"
+  },
+  {
+    "word": "mean_590",
+    "meaning": "unkind"
+  },
+  {
+    "word": "bored_591",
+    "meaning": "not interested"
+  },
+  {
+    "word": "happy_592",
+    "meaning": "feeling joy"
+  },
+  {
+    "word": "sad_593",
+    "meaning": "feeling unhappy"
+  },
+  {
+    "word": "angry_594",
+    "meaning": "feeling mad"
+  },
+  {
+    "word": "excited_595",
+    "meaning": "very happy"
+  },
+  {
+    "word": "afraid_596",
+    "meaning": "feeling fear"
+  },
+  {
+    "word": "tired_597",
+    "meaning": "need rest"
+  },
+  {
+    "word": "hungry_598",
+    "meaning": "need food"
+  },
+  {
+    "word": "thirsty_599",
+    "meaning": "need water"
+  },
+  {
+    "word": "sleepy_600",
+    "meaning": "want sleep"
+  }
+]
