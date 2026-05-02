@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Word Learning App</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f5f5f5;
+}
+
+header{
+  background:black;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:20px;
+}
+
+.container{
+  padding:15px;
+  max-width:800px;
+  margin:auto;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  margin:10px 0;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.word{
+  display:inline-block;
+  background:black;
+  color:white;
+  padding:6px 10px;
+  margin:5px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+button{
+  margin-top:10px;
+  padding:8px 12px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.pronounce{
+  margin-top:10px;
+  display:inline-block;
+  padding:6px 10px;
+  background:#eee;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>mr vinay </header>
+<button onclick="downloadAllWords()">
+⬇ Download Words
+</button>
+<div class="container" id="box">
+Loading...
+</div>
+
+<script>
+
+let allWords = [];
+
+// 🔥 LOAD JSON
+async function loadData(){
+
+  let url = "https://microintel.github.io/vocs/vinay/nkn.json";
+
+  let res = await fetch(url);
+  let data = await res.json();
+
+  allWords = [];
+
+  function findWords(obj){
+    if(typeof obj !== "object" || obj === null) return;
+
+    for(let key in obj){
+      let value = obj[key];
+
+      if(key === "words" && typeof value === "string"){
+        let arr = value.split(",").map(w => w.trim());
+        allWords.push(...arr);
+      }
+
+      if(typeof value === "object"){
+        findWords(value);
+      }
+    }
+  }
+
+  findWords(data);
+  showWords();
+}
+
+// 🔥 SHOW WORD LIST
+function showWords(){
+
+  let box = document.getElementById("box");
+
+  if(allWords.length === 0){
+    box.innerHTML = "No words found";
+    return;
+  }
+
+  let html = `
+    <div class="card">
+      <h3>Total Words: ${allWords.length}</h3>
+  `;
+
+  allWords.forEach((w, index) => {
+    html += `
+      <div style="
+        display:flex;
+        gap:10px;
+        padding:6px 0;
+        align-items:center;
+        border-bottom:1px solid #eee;
+      ">
+        <span style="width:30px;font-weight:bold;">
+          ${index + 1}.
+        </span>
+
+        <span class="word" onclick="getMeaning('${w}')">
+          ${w}
+        </span>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+
+  box.innerHTML = html;
+}
+
+// 🔥 DICTIONARY + PRONUNCIATION
+async function getMeaning(word){
+
+  let box = document.getElementById("box");
+  box.innerHTML = "<p>Loading...</p>";
+
+  let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+
+  try{
+
+    let res = await fetch(url);
+    let data = await res.json();
+
+    if(data.title === "No Definitions Found"){
+      box.innerHTML = `
+        <div class="card">
+          <h3>No result found</h3>
+          <button onclick="showWords()">⬅ Back</button>
+        </div>
+      `;
+      return;
+    }
+
+    let html = `
+      <div class="card">
+        <h2>📘 ${word}</h2>
+        <button onclick="showWords()">⬅ Back</button>
+    `;
+
+    data.forEach(entry => {
+
+      // 📍 WORD INFO HEADER
+      html += `
+        <hr>
+        <h3>Word Info</h3>
+        <p><b>Word:</b> ${entry.word}</p>
+      `;
+
+      // 🔊 PHONETICS
+      if(entry.phonetic){
+        html += `<p><b>Phonetic:</b> ${entry.phonetic}</p>`;
+      }
+
+      if(entry.phonetics && entry.phonetics.length > 0){
+        entry.phonetics.forEach(p => {
+          if(p.text){
+            html += `<p><b>Pronunciation Text:</b> ${p.text}</p>`;
+          }
+          if(p.audio){
+            html += `
+              <button onclick="playAudio('${p.audio}')">
+                🔊 Play Audio
+              </button>
+            `;
+          }
+        });
+      }
+
+      // 🌍 ORIGIN
+      if(entry.origin){
+        html += `
+          <h3>Origin</h3>
+          <p>${entry.origin}</p>
+        `;
+      }
+
+      // 📖 MEANINGS
+      html += `<h3>Meanings</h3>`;
+
+      entry.meanings.forEach(m => {
+
+        html += `
+          <div style="margin-bottom:10px;">
+            <p><b>Part of Speech:</b> ${m.partOfSpeech}</p>
+        `;
+
+        // 📌 DEFINITIONS
+        html += `<ul>`;
+        m.definitions.forEach((d, i) => {
+          html += `
+            <li>
+              <b>${i+1}.</b> ${d.definition}
+          `;
+
+          if(d.example){
+            html += `<br><i>Example:</i> ${d.example}`;
+          }
+
+          html += `</li>`;
+        });
+        html += `</ul>`;
+
+        // 🔗 SYNONYMS
+        if(m.synonyms && m.synonyms.length > 0){
+          html += `<p><b>Synonyms:</b> ${m.synonyms.join(", ")}</p>`;
+        }
+
+        // 🔗 ANTONYMS
+        if(m.antonyms && m.antonyms.length > 0){
+          html += `<p><b>Antonyms:</b> ${m.antonyms.join(", ")}</p>`;
+        }
+
+        html += `</div>`;
+      });
+
+    });
+
+    html += `</div>`;
+
+    box.innerHTML = html;
+
+  } catch(e){
+    box.innerHTML = "<p>Error loading data</p>";
+    console.error(e);
+  }
+}
+
+// 🔊 PLAY AUDIO
+function playAudio(src){
+  let audio = new Audio(src);
+  audio.play();
+}
+
+loadData();
+
+function downloadAllWords(){
+
+  if(!allWords || allWords.length === 0){
+    alert("No words to download");
+    return;
+  }
+
+  // remove duplicates (optional but useful)
+  let uniqueWords = [...new Set(allWords)];
+
+  // convert to JSON array
+  let dataStr = JSON.stringify(uniqueWords, null, 2);
+
+  // create file
+  let blob = new Blob([dataStr], { type: "application/json" });
+
+  let url = URL.createObjectURL(blob);
+
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "words.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+
+
+</script>
+
+</body>
+</html>
