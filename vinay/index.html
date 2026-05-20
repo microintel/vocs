@@ -1,289 +1,877 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="manifest" href="manifest.json">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vinay</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPath</title>
 <style>
-:root{
-  --bg:#ffffff;
-  --ink:#0f172a;
-  --muted:#64748b;
-  --accent:#3b82f6;
-  --card:#ffffff;
+:root {
+  --bg: #f5f5f5;
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #888;
+  --border: #e0e0e0;
+  --red: #d32f2f;
+  --green: #388e3c;
+  --amber: #f57c00;
+  --blue: #1565c0;
+  --radius: 10px;
 }
 
-.dark{
-  --bg:#000000;
-  --ink:#e2e8f0;
-  --muted:#94a3b8;
-  --accent:#000;
-  --card:#000;
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 16px;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+/* ── SCREENS ── */
+.screen { display: none; }
+.screen.active { display: flex; flex-direction: column; min-height: 100vh; }
 
-body{
-  margin:0;
-  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,Helvetica,sans-serif;
-  color:var(--ink);
-  background:var(--bg);
-  transition:0.3s ease;
+/* ════════════════════════
+   LOGIN
+════════════════════════ */
+#login-screen.active {
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background: #1a1a1a;
 }
 
-header{
-display:flex;
-justify-content:space-around;
-align-items:center;
-  max-width:1100px;
-  margin:0 auto;
-  padding:28px 20px 0;
-  letter-spacing:.6rem;
-  font-weight:400;
-  font-size:42px;
-  color:var(--ink);
-}
-body{
-  transition: background-color 0.6s ease, color 0.6s ease;
+.login-box {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  max-width: 380px;
 }
 
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  color: var(--ink);
+}
+.login-title span { color: var(--red); }
+.login-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.75rem; }
 
-/* Toggle Button */
-#themeToggle{
-  float:right;
-  padding:8px 14px;
-  border-radius:20px;
-  border:none;
-  cursor:pointer;
-  font-size:1.6rem;
-  background:var(--card);
-  color:var(--ink);
+.field { margin-bottom: 1rem; }
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.field input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background: #fafafa;
+}
+.field input:focus { border-color: var(--red); background: white; }
+
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.btn:active { opacity: 0.85; }
+
+.switch-link {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.switch-link a { color: var(--red); cursor: pointer; font-weight: 600; }
+
+.err-msg {
+  background: #ffebee;
+  border-left: 3px solid var(--red);
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--red);
+  margin-bottom: 1rem;
+  display: none;
 }
 
-.section{
-  max-width:1100px;
-  margin:10px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+/* ════════════════════════
+   APP SHELL
+════════════════════════ */
+#app-screen.active { display: flex; flex-direction: column; }
+
+/* TOP BAR */
+.topbar {
+  background: var(--ink);
+  color: white;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar-title { font-size: 1.1rem; font-weight: 800; }
+.topbar-title span { color: #e57373; }
+.topbar-right { display: flex; align-items: center; gap: 0.75rem; }
+.streak { font-size: 0.82rem; background: rgba(255,255,255,0.12); padding: 0.3rem 0.6rem; border-radius: 999px; }
+.logout-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
-.section div{
-  flex-grow:1;
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--border);
+  display: flex;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  gap: 0.2rem;
+}
+.nav-tab .icon { font-size: 1.3rem; }
+.nav-tab.active { color: var(--red); }
+.nav-tab.active .icon { filter: none; }
+
+/* MAIN SCROLL AREA */
+.app-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  padding-bottom: 80px; /* above bottom nav */
 }
 
-h1{
-  margin:0 0 8px;
-  font-size:56px;
+/* ════════════════════════
+   DASHBOARD
+════════════════════════ */
+.greeting {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+.greeting-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+.stat {
+  background: white;
+  border-radius: var(--radius);
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.stat-n { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+.stat-n.red { color: var(--red); }
+.stat-n.green { color: var(--green); }
+.stat-l { font-size: 0.68rem; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-top: 0.2rem; }
+
+.progress-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.prog-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.5rem; }
+.prog-label strong { color: var(--ink); }
+.prog-track { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--amber)); border-radius: 999px; transition: width 0.4s; }
+
+.next-btn-card {
+  background: var(--red);
+  color: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.next-btn-card .arrow { font-size: 1.2rem; }
+
+/* ════════════════════════
+   DAY LIST
+════════════════════════ */
+.section-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 1.25rem 0 0.5rem;
 }
 
-p{margin:0}
+.day-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.day-card:active { background: #fafafa; }
 
-@media (max-width:640px){
-  header{font-size:34px; letter-spacing:.5rem}
-  h1{font-size:40px}
+.day-status {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.day-status.done { background: var(--green); border-color: var(--green); color: white; }
+
+.day-info { flex: 1; min-width: 0; }
+.day-name { font-weight: 700; font-size: 0.95rem; }
+.day-preview { font-size: 0.78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.15rem; }
+
+.day-tags { display: flex; gap: 4px; flex-shrink: 0; }
+.tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.tag-s { background: #e8f5e9; color: var(--green); }
+.tag-d { background: #fff8e1; color: var(--amber); }
+
+/* ════════════════════════
+   DAY DETAIL
+════════════════════════ */
+.back-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.cd{
-  min-width:70px;
-  border-radius:1rem;
-  box-shadow:0 4px 8px rgba(0,0,0,.15);
-  text-align:center;
-  padding:10px;
-  background:var(--card);
-  color:var(--ink);
-  transition:.3s;
-  border:1px solid var(--muted);
+.detail-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.15rem; }
+.detail-cat { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+
+.done-toggle {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  margin-bottom: 1.25rem;
+}
+.done-toggle.not-done { background: var(--green); color: white; }
+.done-toggle.is-done { background: #e8f5e9; color: var(--green); border: 1.5px solid var(--green); }
+
+/* CARD BLOCK */
+.block {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.block-header {
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: #fafafa;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.block-header .chevron { margin-left: auto; color: var(--muted); transition: transform 0.2s; }
+.block.closed .chevron { transform: rotate(-90deg); }
+.block.closed .block-body { display: none; }
+.block-body { padding: 1rem; }
+
+/* WORDS */
+.words-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.word {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: #fafafa;
+}
+.word.learned { background: var(--green); border-color: var(--green); color: white; }
+.words-count { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; }
+
+/* STORY */
+.story-body {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #222;
+}
+.story-body b { color: var(--red); font-weight: 600; }
+
+/* DIFF */
+.diff-body { font-size: 0.9rem; line-height: 1.9; color: #333; }
+
+/* QUIZ */
+.quiz-wrap {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.quiz-head { color: #f9a825; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.quiz-q { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-bottom: 0.75rem; line-height: 1.5; }
+.quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.quiz-opt {
+  padding: 0.65rem 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 7px;
+  color: white;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: center;
+}
+.quiz-opt.correct { background: var(--green); border-color: var(--green); }
+.quiz-opt.wrong { background: var(--red); border-color: var(--red); opacity: 0.7; }
+.quiz-result { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 0.6rem; min-height: 1.2rem; }
+.quiz-next {
+  margin-top: 0.75rem;
+  padding: 0.55rem 1rem;
+  background: #f9a825;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: none;
 }
 
-.cd:hover{
-  transform:scale(1.05);
+/* PREV/NEXT */
+.day-nav { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+.nav-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: center;
 }
+.nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.nav-btn.primary { background: var(--red); border-color: var(--red); color: white; }
 
-.lg{
-  font-size:3rem;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.cdback{
-
-background-color:var(--ink);
-color:var(--bg);
-
-}
-#aiBtn{
-font-size:2rem;background:none;border:none;
-}
-i{
-color:var(--ink);
-font-size:1.7rem;
-}
-
-a{
-
-text-decoration:none;
-}
-b{
-color:green;
-}
+/* UTIL */
+.fade { animation: fadeUp 0.25s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
 </head>
-
 <body>
 
-<header>
-<font>
-  Mr Vinay
-  </font>
-  <button id="themeToggle">🌙</button>
-</header>
+<!-- LOGIN -->
+<div id="login-screen" class="screen active">
+  <div class="login-box">
+    <div class="login-title">Word<span>Path</span></div>
+    <div class="login-sub">Your vocabulary journey</div>
 
-<hr>
+    <div class="err-msg" id="login-err"></div>
 
-<h2 id="currentTitle" style="text-align:center; margin:10px; color:var(--muted);">
-  Home
-</h2>
+    <div id="f-login">
+      <div class="field"><label>Username</label><input id="l-user" type="text" placeholder="Username" autocomplete="username"></div>
+      <div class="field"><label>Password</label><input id="l-pass" type="password" placeholder="Password" autocomplete="current-password"></div>
+      <button class="btn" onclick="doLogin()">Sign In →</button>
+      <div class="switch-link">No account? <a onclick="showForm('register')">Register</a></div>
+    </div>
 
-
-<section id="par" class="section">
-
-nkn...
-
+    <div id="f-register" style="display:none">
+      <div class="field"><label>Your Name</label><input id="r-name" type="text" placeholder="Your name"></div>
+      <div class="field"><label>Username</label><input id="r-user" type="text" placeholder="Username"></div>
+      <div class="field"><label>Password</label><input id="r-pass" type="password" placeholder="Password"></div>
+      <button class="btn" onclick="doRegister()">Create Account →</button>
+      <div class="switch-link">Have account? <a onclick="showForm('login')">Sign in</a></div>
+    </div>
+  </div>
 </div>
 
+<!-- APP -->
+<div id="app-screen" class="screen">
+  <div class="topbar">
+    <div class="topbar-title">Word<span>Path</span></div>
+    <div class="topbar-right">
+      <div class="streak" id="streak">🔥 0</div>
+      <button class="logout-btn" onclick="doLogout()">Out</button>
+    </div>
+  </div>
 
+  <div class="app-body" id="app-body"></div>
 
-
-</section>
-
-<p style="text-align:center; margin-top:20px; font-size:14px; color:var(--muted);">
-developed by Microintel
-</p>
+  <nav class="bottom-nav">
+    <button class="nav-tab active" id="tab-home" onclick="showTab('home')">
+      <span class="icon">🏠</span>Home
+    </button>
+    <button class="nav-tab" id="tab-days" onclick="showTab('days')">
+      <span class="icon">📅</span>Days
+    </button>
+    <button class="nav-tab" id="tab-progress" onclick="showTab('progress')">
+      <span class="icon">📊</span>Progress
+    </button>
+  </nav>
+</div>
 
 <script>
-let currentPath = "";
-let parent= document.getElementById("par");
-let data;
-async function fetchData() {
-  try {
-    let response = await fetch("https://microintel.github.io/vocs/vinay/nkn.json");
-    data = await response.json(); 
-    parent.innerHTML="";
-    Object.keys(data).forEach((x)=>{
-    let xx= document.createElement("div");
-    xx.innerHTML=`
-    <div onclick="exchange('${x}')" class="cd">
-    <h3>${x}</h3>
-    </div>`;
-    parent.appendChild(xx);
-    
-    });
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+const DATA_URL = 'https://microintel.github.io/vocs/vinay/nkn.json';
+let DATA = null;
+let USER = null;
+let view = { tab: 'home', cat: null, day: null };
+
+/* ── STORAGE ── */
+const S = k => { try { return JSON.parse(localStorage.getItem(k)) } catch { return null } };
+const W = (k,v) => localStorage.setItem(k, JSON.stringify(v));
+function getUD() { return S(`wp_${USER.u}`) || { done:[], words:{}, dates:[] }; }
+function saveUD(d) { W(`wp_${USER.u}`, d); }
+
+/* ── AUTH ── */
+function showForm(f) {
+  document.getElementById('f-login').style.display = f==='login'?'block':'none';
+  document.getElementById('f-register').style.display = f==='register'?'block':'none';
+  document.getElementById('login-err').style.display = 'none';
+}
+function err(m) { const e=document.getElementById('login-err'); e.textContent=m; e.style.display='block'; }
+
+function doLogin() {
+  const u=document.getElementById('l-user').value.trim();
+  const p=document.getElementById('l-pass').value;
+  if(!u||!p) return err('Fill in all fields.');
+  const users=S('wp_users')||{};
+  if(!users[u]||users[u].p!==p) return err('Wrong username or password.');
+  USER={u,name:users[u].name};
+  W('wp_sess',USER);
+  startApp();
+}
+function doRegister() {
+  const name=document.getElementById('r-name').value.trim();
+  const u=document.getElementById('r-user').value.trim();
+  const p=document.getElementById('r-pass').value;
+  if(!name||!u||!p) return err('Fill in all fields.');
+  const users=S('wp_users')||{};
+  if(users[u]) return err('Username taken.');
+  users[u]={name,p};
+  W('wp_users',users);
+  USER={u,name};
+  W('wp_sess',USER);
+  startApp();
+}
+function doLogout() {
+  USER=null; W('wp_sess',null);
+  document.getElementById('login-screen').classList.add('active');
+  document.getElementById('app-screen').classList.remove('active');
 }
 
-fetchData();
+/* ── STREAK ── */
+function updateStreak() {
+  const ud=getUD();
+  const today=new Date().toISOString().split('T')[0];
+  if(!ud.dates.includes(today)){ud.dates.push(today);saveUD(ud);}
+  const dates=[...new Set(ud.dates)].sort();
+  let streak=1;
+  for(let i=dates.length-1;i>0;i--){
+    const diff=(new Date(dates[i])-new Date(dates[i-1]))/86400000;
+    if(diff===1) streak++; else break;
+  }
+  document.getElementById('streak').textContent=`🔥 ${streak}`;
+}
 
+/* ── START ── */
+async function startApp() {
+  document.getElementById('login-screen').classList.remove('active');
+  document.getElementById('app-screen').classList.add('active');
+  if(!DATA){
+    try{const r=await fetch(DATA_URL);DATA=await r.json();}
+    catch{document.getElementById('app-body').innerHTML='<p style="padding:2rem;color:red">Could not load data. Check connection.</p>';return;}
+  }
+  updateStreak();
+  showTab('home');
+}
 
-function exchange(path) {
-  let keys = path.split("|||");
-  let current = data;
-currentPath = path;
-  keys.forEach(k => {
-    current = current[k];
+/* ── TABS ── */
+function showTab(tab) {
+  view.tab=tab; view.cat=null; view.day=null;
+  ['home','days','progress'].forEach(t=>{
+    document.getElementById(`tab-${t}`).classList.toggle('active',t===tab);
   });
+  if(tab==='home') renderHome();
+  else if(tab==='days') renderDayList();
+  else if(tab==='progress') renderProgress();
+}
 
-  let title = document.getElementById("currentTitle");
-  title.textContent = keys[keys.length - 1];
-
-  parent.innerHTML = "";
-
-  if (keys.length > 0) {
-    let backBtn = document.createElement("div");
-    backBtn.innerHTML = `
-      <div onclick="goBack('${path}')" class="cd cdback">
-        <h3>⬅ Back</h3>
-      </div>
-    `;
-    parent.appendChild(backBtn);
-  }
-
-  if (typeof current === "object") {
-    Object.keys(current).forEach((key) => {
-      let div = document.createElement("div");
-
-      div.innerHTML = `
-        <div onclick="exchange('${path}|||${key}')" class="cd">
-          <h3>${key}</h3>
-        </div>
-      `;
-
-      parent.appendChild(div);
+/* ── ALL DAYS flat list ── */
+function allDays() {
+  const list=[];
+  Object.keys(DATA).forEach(cat=>{
+    Object.keys(DATA[cat]).forEach(day=>{
+      list.push({cat,day,data:DATA[cat][day]});
     });
-  } else {
-    parent.innerHTML += `
-      <div class="cd">
-        <h3>Final Value</h3>
-        <p>${current}</p>
+  });
+  return list;
+}
+function dayKey(cat,day){return `${cat}__${day}`;}
+
+/* ── HOME ── */
+function renderHome() {
+  const ud=getUD();
+  const days=allDays();
+  const totalDays=days.length;
+  const doneDays=ud.done.length;
+  const learnedW=Object.values(ud.words).reduce((a,b)=>a+b.length,0);
+
+  // find next incomplete
+  const next=days.find(d=>!ud.done.includes(dayKey(d.cat,d.day)));
+
+  document.getElementById('app-body').innerHTML=`
+    <div class="fade">
+      <div class="greeting">Hello, ${USER.name}! 👋</div>
+      <div class="greeting-sub">Keep learning — one day at a time.</div>
+
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n red">${doneDays}</div><div class="stat-l">Done</div></div>
+        <div class="stat"><div class="stat-n green">${learnedW}</div><div class="stat-l">Learned</div></div>
+        <div class="stat"><div class="stat-n">${totalDays}</div><div class="stat-l">Total</div></div>
       </div>
-    `;
-  }
+
+      <div class="progress-card">
+        <div class="prog-label"><span>Overall</span><strong>${doneDays} / ${totalDays} days</strong></div>
+        <div class="prog-track"><div class="prog-fill" style="width:${totalDays?(doneDays/totalDays*100).toFixed(1):0}%"></div></div>
+      </div>
+
+      ${next
+        ? `<button class="next-btn-card" onclick="openDay('${next.cat}','${next.day}')">
+            <span>Continue: ${next.day}<br><small style="font-weight:400;opacity:0.85">${next.cat}</small></span>
+            <span class="arrow">→</span>
+           </button>`
+        : `<div class="next-btn-card" style="background:var(--green)">🎉 All days completed!</div>`
+      }
+    </div>`;
 }
 
-
-
-function goBack(path) {
-  let arr = path.split("|||");
-  arr.pop();
-
-  if (arr.length === 0) {
-    document.getElementById("currentTitle").textContent = "Home";
-    fetchData();
-  } else {
-    exchange(arr.join("|||"));
-  }
+/* ── DAY LIST ── */
+function renderDayList() {
+  const ud=getUD();
+  let html='<div class="fade">';
+  Object.keys(DATA).forEach(cat=>{
+    const days=Object.keys(DATA[cat]);
+    if(!days.length) return;
+    html+=`<div class="section-heading">${cat}</div>`;
+    days.forEach(day=>{
+      const d=DATA[cat][day];
+      const key=dayKey(cat,day);
+      const done=ud.done.includes(key);
+      const preview=(d.words||d.recipe||'').split(',')[0].trim();
+      html+=`
+        <div class="day-card" onclick="openDay('${cat}','${day}')">
+          <div class="day-status ${done?'done':''}">${done?'✓':'○'}</div>
+          <div class="day-info">
+            <div class="day-name">${day.charAt(0).toUpperCase()+day.slice(1)}</div>
+            <div class="day-preview">${preview}…</div>
+          </div>
+          <div class="day-tags">
+            ${d.story?'<span class="tag tag-s">Story</span>':''}
+            ${d.differences?'<span class="tag tag-d">Tips</span>':''}
+          </div>
+        </div>`;
+    });
+  });
+  html+='</div>';
+  document.getElementById('app-body').innerHTML=html;
 }
 
+/* ── PROGRESS ── */
+function renderProgress() {
+  const ud=getUD();
+  const days=allDays();
+  const totalDays=days.length;
+  const doneDays=ud.done.length;
+  const learnedW=Object.values(ud.words).reduce((a,b)=>a+b.length,0);
+  const totalW=days.reduce((a,d)=>a+(d.data.words?(d.data.words.split(',').length):0),0);
+  const pct=totalDays?Math.round(doneDays/totalDays*100):0;
+  const wpct=totalW?Math.round(learnedW/totalW*100):0;
 
+  document.getElementById('app-body').innerHTML=`
+    <div class="fade">
+      <div class="section-heading" style="margin-top:0">Your Stats</div>
 
+      <div class="progress-card">
+        <div class="prog-label"><span>Days completed</span><strong>${doneDays} / ${totalDays} (${pct}%)</strong></div>
+        <div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div>
+      </div>
 
+      <div class="progress-card">
+        <div class="prog-label"><span>Words learned</span><strong>${learnedW} / ${totalW} (${wpct}%)</strong></div>
+        <div class="prog-track"><div class="prog-fill" style="width:${wpct}%;background:linear-gradient(90deg,#388e3c,#66bb6a)"></div></div>
+      </div>
 
-const toggleBtn = document.getElementById("themeToggle");
-
-// Load saved theme
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "dark") {
-  document.body.classList.add("dark");
-  toggleBtn.textContent = "☀️";
+      <div class="section-heading">Completed Days</div>
+      ${ud.done.length===0
+        ? '<p style="color:var(--muted);font-size:0.88rem">No days completed yet. Go to Days tab to start!</p>'
+        : ud.done.map(k=>{
+            const [cat,day]=k.split('__');
+            return `<div class="day-card" onclick="openDay('${cat}','${day}')">
+              <div class="day-status done">✓</div>
+              <div class="day-info"><div class="day-name">${day}</div><div class="day-preview">${cat}</div></div>
+            </div>`;
+          }).join('')
+      }
+    </div>`;
 }
 
-// Toggle theme
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+/* ── DAY DETAIL ── */
+function openDay(cat, day) {
+  view.cat=cat; view.day=day;
+  renderDay();
+}
 
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    toggleBtn.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    toggleBtn.textContent = "🌙";
+function renderDay() {
+  const cat=view.cat, day=view.day;
+  const d=DATA[cat][day];
+  const ud=getUD();
+  const key=dayKey(cat,day);
+  const done=ud.done.includes(key);
+
+  // siblings
+  const days=Object.keys(DATA[cat]);
+  const idx=days.indexOf(day);
+  const prev=days[idx-1], next=days[idx+1];
+
+  // --- WORDS block ---
+  let wordsBlock='';
+  if(d.words){
+    const wlist=d.words.split(',').map(w=>w.trim().replace(/\r\n/g,'')).filter(Boolean);
+    const learned=ud.words[key]||[];
+    const chips=wlist.map(w=>`<span class="word ${learned.includes(w)?'learned':''}" onclick="toggleWord('${key}','${w}',this)">${w}</span>`).join('');
+    const lc=learned.length;
+    wordsBlock=`
+      <div class="block" id="blk-words">
+        <div class="block-header" onclick="toggleBlock('blk-words')">
+          📚 Words (${wlist.length}) <span class="chevron">▾</span>
+        </div>
+        <div class="block-body">
+          <div class="words-wrap">${chips}</div>
+          <div class="words-count" id="wc-${key}">${lc}/${wlist.length} learned — tap a word to mark it</div>
+          ${wlist.length>=4?makeQuiz(wlist,key):''}
+        </div>
+      </div>`;
   }
+
+  // --- STORY block ---
+  let storyBlock='';
+  if(d.story){
+    storyBlock=`
+      <div class="block" id="blk-story">
+        <div class="block-header" onclick="toggleBlock('blk-story')">
+          📖 Story <span class="chevron">▾</span>
+        </div>
+        <div class="block-body">
+          <div class="story-body">${d.story}</div>
+        </div>
+      </div>`;
+  }
+
+  // --- DIFFERENCES block ---
+  let diffBlock='';
+  if(d.differences){
+    diffBlock=`
+      <div class="block" id="blk-diff">
+        <div class="block-header" onclick="toggleBlock('blk-diff')">
+          💡 Word Tips <span class="chevron">▾</span>
+        </div>
+        <div class="block-body">
+          <div class="diff-body">${d.differences.replace(/\n/g,'<br>')}</div>
+        </div>
+      </div>`;
+  }
+
+  // --- RECIPE block ---
+  let recipeBlock='';
+  if(d.recipe){
+    recipeBlock=`
+      <div class="block" id="blk-recipe">
+        <div class="block-header" onclick="toggleBlock('blk-recipe')">
+          🍲 Recipe <span class="chevron">▾</span>
+        </div>
+        <div class="block-body">
+          <div class="story-body">${d.recipe.replace(/\n/g,'<br>')}</div>
+        </div>
+      </div>`;
+  }
+
+  document.getElementById('app-body').innerHTML=`
+    <div class="fade">
+      <div class="back-bar" onclick="goBack()">← Back</div>
+      <div class="detail-title">${day.charAt(0).toUpperCase()+day.slice(1)}</div>
+      <div class="detail-cat">${cat}</div>
+
+      <button class="done-toggle ${done?'is-done':'not-done'}" id="done-btn" onclick="toggleDone('${key}')">
+        ${done?'✅ Completed — tap to undo':'Mark as Complete'}
+      </button>
+
+      ${wordsBlock}
+      ${storyBlock}
+      ${diffBlock}
+      ${recipeBlock}
+
+      <div class="day-nav">
+        <button class="nav-btn" onclick="openDay('${cat}','${prev}')" ${!prev?'disabled':''}>← Prev</button>
+        <button class="nav-btn primary" onclick="openDay('${cat}','${next}')" ${!next?'disabled':''}>Next →</button>
+      </div>
+    </div>`;
+}
+
+function goBack() {
+  if(view.tab==='home') renderHome();
+  else if(view.tab==='days') renderDayList();
+  else renderProgress();
+}
+
+/* ── TOGGLE WORD ── */
+function toggleWord(key, w, el) {
+  const ud=getUD();
+  if(!ud.words[key]) ud.words[key]=[];
+  const i=ud.words[key].indexOf(w);
+  if(i===-1){ud.words[key].push(w);el.classList.add('learned');}
+  else{ud.words[key].splice(i,1);el.classList.remove('learned');}
+  saveUD(ud);
+  const total=el.closest('.block-body').querySelectorAll('.word').length;
+  const lc=el.closest('.block-body').querySelectorAll('.word.learned').length;
+  const wc=document.getElementById(`wc-${key}`);
+  if(wc) wc.textContent=`${lc}/${total} learned — tap a word to mark it`;
+}
+
+/* ── TOGGLE DONE ── */
+function toggleDone(key) {
+  const ud=getUD();
+  const i=ud.done.indexOf(key);
+  if(i===-1) ud.done.push(key); else ud.done.splice(i,1);
+  saveUD(ud);
+  const done=ud.done.includes(key);
+  const btn=document.getElementById('done-btn');
+  btn.className=`done-toggle ${done?'is-done':'not-done'}`;
+  btn.textContent=done?'✅ Completed — tap to undo':'Mark as Complete';
+}
+
+/* ── COLLAPSE BLOCK ── */
+function toggleBlock(id) {
+  document.getElementById(id).classList.toggle('closed');
+}
+
+/* ── QUIZ ── */
+function makeQuiz(wlist, key) {
+  const shuffled=[...wlist].sort(()=>Math.random()-0.5);
+  const ans=shuffled[0];
+  const opts=[ans,...shuffled.slice(1,4)].sort(()=>Math.random()-0.5);
+  const qid=`q_${Date.now()}`;
+  return `
+    <div class="quiz-wrap" id="${qid}">
+      <div class="quiz-head">⚡ Quick Quiz</div>
+      <div class="quiz-q">Which is one of today's vocabulary words?</div>
+      <div class="quiz-opts">
+        ${opts.map(o=>`<button class="quiz-opt" onclick="answerQ(this,'${o}','${ans}','${qid}')">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-result" id="${qid}_r"></div>
+      <button class="quiz-next" id="${qid}_n" onclick="reloadQuiz('${key}','${qid}')">Next →</button>
+    </div>`;
+}
+
+function answerQ(btn,chosen,ans,qid) {
+  document.querySelectorAll(`#${qid} .quiz-opt`).forEach(b=>b.disabled=true);
+  if(chosen===ans){btn.classList.add('correct');document.getElementById(`${qid}_r`).textContent='✓ Correct!';}
+  else{
+    btn.classList.add('wrong');
+    document.querySelectorAll(`#${qid} .quiz-opt`).forEach(b=>{if(b.textContent===ans)b.classList.add('correct');});
+    document.getElementById(`${qid}_r`).textContent=`Answer: "${ans}"`;
+  }
+  document.getElementById(`${qid}_n`).style.display='inline-block';
+}
+
+function reloadQuiz(key, qid) {
+  const d=DATA[view.cat][view.day];
+  const wlist=d.words.split(',').map(w=>w.trim().replace(/\r\n/g,'')).filter(Boolean);
+  document.getElementById(qid).outerHTML=makeQuiz(wlist,key);
+}
+
+/* ── ENTER KEY ── */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter') return;
+  if(document.getElementById('f-login').style.display!=='none') doLogin();
+  else doRegister();
 });
 
-
+/* ── AUTO LOGIN ── */
+window.addEventListener('load',()=>{
+  const s=S('wp_sess');
+  if(s&&s.u){USER=s;startApp();}
+});
 </script>
-
 </body>
 </html>
