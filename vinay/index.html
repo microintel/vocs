@@ -427,6 +427,56 @@ body {
 /* UTIL */
 .fade { animation: fadeUp 0.25s ease; }
 @keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+/* EXPORT / IMPORT */
+.divider {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin: 1.25rem 0; color: var(--muted); font-size: 0.82rem;
+}
+.divider::before, .divider::after {
+  content:''; flex:1; height:1px; background:var(--border);
+}
+
+.import-area {
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #fafafa;
+}
+.import-area:hover { border-color: var(--blue); background: #f0f4ff; }
+.import-area.drag { border-color: var(--blue); background: #e8f0fe; }
+.import-icon { font-size: 1.8rem; margin-bottom: 0.35rem; }
+.import-label { font-size: 0.88rem; color: var(--muted); }
+.import-label strong { color: var(--blue); }
+#import-file-input { display: none; }
+
+.export-card {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem;
+  margin-bottom: 1rem;
+}
+.export-card-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem; }
+.export-card-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.85rem; }
+.btn-export {
+  width: 100%; padding: 0.75rem;
+  background: var(--blue); color: white;
+  border: none; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 700; cursor: pointer;
+}
+.btn-export:active { opacity: 0.85; }
+
+.toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  background: #333; color: white; padding: 0.65rem 1.25rem;
+  border-radius: 999px; font-size: 0.85rem; font-weight: 500;
+  z-index: 999; opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; }
 </style>
 </head>
 <body>
@@ -444,6 +494,16 @@ body {
       <div class="field"><label>Password</label><input id="l-pass" type="password" placeholder="Password" autocomplete="current-password"></div>
       <button class="btn" onclick="doLogin()">Sign In →</button>
       <div class="switch-link">No account? <a onclick="showForm('register')">Register</a></div>
+
+      <div class="divider">or restore from backup</div>
+      <input type="file" id="import-file-input" accept=".json" onchange="importFromFile(event)">
+      <div class="import-area" onclick="document.getElementById('import-file-input').click()"
+           ondragover="this.classList.add('drag');event.preventDefault()"
+           ondragleave="this.classList.remove('drag')"
+           ondrop="this.classList.remove('drag');handleDrop(event)">
+        <div class="import-icon">📂</div>
+        <div class="import-label">Tap to load your <strong>backup file</strong><br><span style="font-size:0.78rem">(.json exported from this app)</span></div>
+      </div>
     </div>
 
     <div id="f-register" style="display:none">
@@ -479,6 +539,7 @@ body {
       <span class="icon">📊</span>Progress
     </button>
   </nav>
+  <div class="toast" id="toast"></div>
 </div>
 
 <script>
@@ -683,6 +744,13 @@ function renderProgress() {
             </div>`;
           }).join('')
       }
+
+      <div class="section-heading">Backup & Restore</div>
+      <div class="export-card">
+        <div class="export-card-title">💾 Export your progress</div>
+        <div class="export-card-sub">Download a backup file with your account and all progress. Use it to restore on any device — just load it at the login screen.</div>
+        <button class="btn-export" onclick="exportProgress()">⬇ Download Backup File</button>
+      </div>
     </div>`;
 }
 
@@ -858,6 +926,79 @@ function reloadQuiz(key, qid) {
   const d=DATA[view.cat][view.day];
   const wlist=d.words.split(',').map(w=>w.trim().replace(/\r\n/g,'')).filter(Boolean);
   document.getElementById(qid).outerHTML=makeQuiz(wlist,key);
+}
+
+/* ── TOAST ── */
+function toast(msg, duration=2500) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), duration);
+}
+
+/* ── EXPORT ── */
+function exportProgress() {
+  const users = S('wp_users') || {};
+  const ud = getUD();
+  const payload = {
+    _app: 'WordPath',
+    _version: 1,
+    _exported: new Date().toISOString(),
+    user: { u: USER.u, name: USER.name, p: users[USER.u]?.p },
+    progress: ud
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `wordpath_${USER.u}_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('✅ Backup downloaded!');
+}
+
+/* ── IMPORT (from login page) ── */
+function importFromFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  readAndImport(file);
+  e.target.value = ''; // reset so same file can be picked again
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file) readAndImport(file);
+}
+
+function readAndImport(file) {
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (data._app !== 'WordPath' || !data.user || !data.progress) {
+        return err('Invalid backup file. Please use a WordPath export.');
+      }
+      const { u, name, p } = data.user;
+      if (!u || !name || !p) return err('Backup file is missing user info.');
+
+      // Restore user account
+      const users = S('wp_users') || {};
+      users[u] = { name, p };
+      W('wp_users', users);
+
+      // Restore progress
+      W(`wp_${u}`, data.progress);
+
+      // Log in automatically
+      USER = { u, name };
+      W('wp_sess', USER);
+      startApp();
+      toast(`✅ Welcome back, ${name}! Progress restored.`);
+    } catch {
+      err('Could not read file. Make sure it is a valid WordPath backup.');
+    }
+  };
+  reader.readAsText(file);
 }
 
 /* ── ENTER KEY ── */
